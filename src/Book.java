@@ -10,9 +10,22 @@ public class Book {
         this.author = author;
         this.age = age;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
     @Override
     public String toString(){
-        return "название книги: \"" + name +"\" " +  "автор: " + author + "год публикации: " + age;
+        return "название книги: \"" + name +"\" " +  "автор: " + author + " год публикации: " + age;
     }
 
     @Override
@@ -20,11 +33,13 @@ public class Book {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
-        return age == book.age && Objects.equals(name, book.name) && Objects.equals(author, book.author);
+        return Objects.equals(name, book.getName()) &&
+                Objects.equals(author, book.getAuthor()) &&
+                Objects.equals(age, book.getAge());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, author, age);
+        return Objects.hash(getName(), getAuthor(), getAge());
     }
 }
