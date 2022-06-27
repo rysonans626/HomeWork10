@@ -18,10 +18,10 @@ public class Author {
 
     @Override
     public String toString(){
-        return "Имя: " + Name + "; фамилия: " + LastName;
+        return "Имя: " + getName() + "; фамилия: " + getLastName();
     }
     public int hashCode(){
-        return Objects.hash(Name, LastName);
+        return Objects.hash(getName(), getLastName());
     }
 
     @Override
